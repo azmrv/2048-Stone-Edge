@@ -1,0 +1,176 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Fonts/PT Sans_Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Styles/FontsStyle.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/GUI_GameOver.gd" type="Script" id=3]
+[ext_resource path="res://Styles/styleboxflat_normal.tres" type="StyleBox" id=4]
+[ext_resource path="res://Styles/styleboxflat_focus.tres" type="StyleBox" id=5]
+[ext_resource path="res://Styles/styleboxflat_pressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://Styles/styleboxflat_disabled.tres" type="StyleBox" id=7]
+[ext_resource path="res://Styles/styleboxflat_hover.tres" type="StyleBox" id=8]
+[ext_resource path="res://Styles/dynamicfont_numbers.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Styles/GUI.tres" type="StyleBox" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 39
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 33
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="GUI_GameOver" type="Node2D"]
+show_behind_parent = true
+z_index = 5
+z_as_relative = false
+script = ExtResource( 3 )
+
+[node name="VBox" type="VBoxContainer" parent="."]
+margin_right = 500.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 500, 900 )
+size_flags_horizontal = 11
+size_flags_vertical = 11
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxLabels" type="VBoxContainer" parent="VBox"]
+show_behind_parent = true
+margin_right = 500.0
+margin_bottom = 704.0
+size_flags_horizontal = 11
+size_flags_vertical = 11
+size_flags_stretch_ratio = 128.0
+custom_constants/separation = 30
+alignment = 1
+
+[node name="GameStatus" type="Label" parent="VBox/VBoxLabels"]
+margin_right = 500.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Over"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreTable" type="RichTextLabel" parent="VBox/VBoxLabels"]
+margin_top = 122.0
+margin_right = 500.0
+margin_bottom = 704.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/normal = ExtResource( 10 )
+custom_fonts/normal_font = ExtResource( 9 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+bbcode_enabled = true
+scroll_following = true
+
+[node name="VBoxB" type="VBoxContainer" parent="VBox"]
+show_behind_parent = true
+margin_top = 712.0
+margin_right = 500.0
+margin_bottom = 792.0
+rect_min_size = Vector2( 500, 80 )
+size_flags_horizontal = 3
+size_flags_vertical = 11
+size_flags_stretch_ratio = 0.0
+alignment = 2
+
+[node name="HBox" type="HBoxContainer" parent="VBox/VBoxB"]
+show_behind_parent = true
+margin_right = 500.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 500, 0 )
+size_flags_horizontal = 11
+size_flags_vertical = 11
+custom_constants/separation = 20
+alignment = 2
+
+[node name="Container3" type="Container" parent="VBox/VBoxB/HBox"]
+margin_right = 20.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 20, 80 )
+size_flags_vertical = 3
+
+[node name="NewGame" type="Button" parent="VBox/VBoxB/HBox"]
+margin_left = 40.0
+margin_right = 460.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = SubResource( 2 )
+text = "Try Again!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container2" type="Container" parent="VBox/VBoxB/HBox"]
+margin_left = 480.0
+margin_right = 500.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 20, 80 )
+size_flags_vertical = 3
+
+[node name="Container" type="Container" parent="VBox"]
+margin_top = 800.0
+margin_right = 500.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="WaitForADs" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="PopUp" type="PopupMenu" parent="."]
+show_behind_parent = true
+light_mask = 0
+margin_right = 20.0
+margin_bottom = 20.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TimeToADs" type="Label" parent="PopUp"]
+margin_left = 56.0
+margin_top = 208.0
+margin_right = 456.0
+margin_bottom = 626.0
+custom_fonts/font = SubResource( 3 )
+text = "PLZ SEE ADS"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="Label" type="Label" parent="PopUp"]
+margin_left = 68.0
+margin_top = 76.0
+margin_right = 424.0
+margin_bottom = 292.0
+custom_fonts/font = ExtResource( 2 )
+text = "PLZ Waiting for ADs"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+[connection signal="pressed" from="VBox/VBoxB/HBox/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="timeout" from="WaitForADs" to="." method="_on_WaitForADs_timeout"]

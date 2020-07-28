@@ -1,0 +1,136 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/ADs.gd" type="Script" id=1]
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=3]
+[ext_resource path="res://Styles/FontsStyle.tres" type="DynamicFont" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/PT Sans_Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+font_data = SubResource( 1 )
+
+[node name="ADs" type="Node2D"]
+light_mask = 0
+z_index = 20
+z_as_relative = false
+script = ExtResource( 1 )
+
+[node name="ADsTimer" type="Timer" parent="."]
+wait_time = 0.055
+one_shot = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+show_behind_parent = true
+margin_top = -1.8877
+margin_right = 500.0
+margin_bottom = 898.112
+rect_min_size = Vector2( 500, 900 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ADImage" type="TextureRect" parent="CenterContainer"]
+visible = false
+show_behind_parent = true
+light_mask = -2147483647
+margin_right = 500.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 500, 900 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugOut" type="RichTextLabel" parent="CenterContainer"]
+margin_top = 200.0
+margin_right = 500.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 500, 500 )
+custom_fonts/normal_font = ExtResource( 4 )
+text = "TEXT"
+
+[node name="CloseADs" type="Button" parent="."]
+show_behind_parent = true
+margin_right = 80.0
+margin_bottom = 80.0
+rect_clip_content = true
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "X"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerTime" type="Label" parent="."]
+show_behind_parent = true
+margin_left = -1.88785
+margin_top = -1.88775
+margin_right = 78.1122
+margin_bottom = 78.1122
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 3 )
+text = "TIME"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnBanner" type="Button" parent="."]
+margin_left = 33.5613
+margin_top = 794.857
+margin_right = 128.561
+margin_bottom = 869.857
+custom_fonts/font = ExtResource( 4 )
+toggle_mode = true
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnInterstitial" type="Button" parent="."]
+margin_left = 186.469
+margin_top = 791.081
+margin_right = 281.469
+margin_bottom = 866.081
+custom_fonts/font = ExtResource( 4 )
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnRewardedVideo" type="Button" parent="."]
+margin_left = 345.04
+margin_top = 791.081
+margin_right = 440.04
+margin_bottom = 866.081
+custom_fonts/font = ExtResource( 4 )
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 3 )
+banner_id = "ca-app-pub-2510925268933160~4481218293"
+interstitial_id = "ca-app-pub-2510925268933160/6596531152"
+rewarded_id = "ca-app-pub-2510925268933160/3714931537"
+[connection signal="timeout" from="ADsTimer" to="." method="_on_ADsTimer_timeout"]
+[connection signal="pressed" from="CloseADs" to="." method="_on_Button_pressed"]
+[connection signal="toggled" from="BtnBanner" to="." method="_on_BtnBanner_toggled"]
+[connection signal="pressed" from="BtnInterstitial" to="." method="_on_BtnInterstitial_pressed"]
+[connection signal="pressed" from="BtnRewardedVideo" to="." method="_on_BtnRewardedVideo_pressed"]

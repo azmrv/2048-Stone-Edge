@@ -1,0 +1,576 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Styles/FontsStyle.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/GUI.gd" type="Script" id=2]
+[ext_resource path="res://Styles/new_styleboxflat.tres" type="StyleBox" id=3]
+[ext_resource path="res://Fonts/PT Sans_Bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Styles/dynamicfont_numbers.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Styles/styleboxflat_focus.tres" type="StyleBox" id=7]
+[ext_resource path="res://Styles/styleboxflat_pressed.tres" type="StyleBox" id=8]
+[ext_resource path="res://Styles/styleboxflat_normal.tres" type="StyleBox" id=9]
+[ext_resource path="res://Styles/styleboxflat_disabled.tres" type="StyleBox" id=10]
+[ext_resource path="res://Styles/styleboxflat_hover.tres" type="StyleBox" id=11]
+[ext_resource path="res://Styles/dynamic_font.tres" type="DynamicFont" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+font_data = ExtResource( 4 )
+
+[node name="GUI" type="Node2D"]
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="VBoxC" type="VBoxContainer" parent="."]
+margin_top = 2.24493
+margin_right = 500.0
+margin_bottom = 902.245
+rect_min_size = Vector2( 500, 800 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TelosAds" type="VBoxContainer" parent="VBoxC"]
+show_behind_parent = true
+margin_right = 500.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+
+[node name="Psyontech" type="LinkButton" parent="VBoxC/TelosAds"]
+show_behind_parent = true
+margin_left = 342.0
+margin_right = 500.0
+margin_bottom = 27.0
+hint_tooltip = "http://games.psyon.tech New game every month"
+size_flags_horizontal = 8
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.619608, 0.619608, 0.619608, 1 )
+text = "Games.Psyon.Tech"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameName" type="Label" parent="VBoxC/TelosAds"]
+show_behind_parent = true
+margin_top = 35.0
+margin_right = 500.0
+margin_bottom = 62.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.772549, 0.772549, 0.772549, 1 )
+text = "2048 Stone Edge"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="HBoxContainer" parent="VBoxC"]
+show_behind_parent = true
+margin_top = 70.0
+margin_right = 500.0
+margin_bottom = 151.0
+size_flags_horizontal = 3
+
+[node name="VBox" type="VBoxContainer" parent="VBoxC/Menu"]
+show_behind_parent = true
+margin_right = 500.0
+margin_bottom = 81.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Score" type="HBoxContainer" parent="VBoxC/Menu/VBox"]
+show_behind_parent = true
+margin_right = 500.0
+margin_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+
+[node name="Container3" type="Container" parent="VBoxC/Menu/VBox/Score"]
+margin_right = 56.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+
+[node name="Score" type="Label" parent="VBoxC/Menu/VBox/Score"]
+margin_left = 64.0
+margin_right = 219.0
+margin_bottom = 33.0
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.772549, 0.772549, 0.772549, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Score: 123456"
+align = 1
+valign = 1
+
+[node name="Container" type="Container" parent="VBoxC/Menu/VBox/Score"]
+margin_left = 227.0
+margin_right = 283.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+
+[node name="Best" type="Label" parent="VBoxC/Menu/VBox/Score"]
+margin_left = 291.0
+margin_right = 434.0
+margin_bottom = 33.0
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.772549, 0.772549, 0.772549, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Best: 123456"
+align = 1
+valign = 1
+
+[node name="Container2" type="Container" parent="VBoxC/Menu/VBox/Score"]
+margin_left = 442.0
+margin_right = 500.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxC/Menu/VBox"]
+show_behind_parent = true
+margin_top = 41.0
+margin_right = 500.0
+margin_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 500, 40 )
+size_flags_horizontal = 8
+size_flags_vertical = 11
+
+[node name="Container2" type="Container" parent="VBoxC/Menu/VBox/Buttons"]
+margin_right = 20.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 20, 0 )
+size_flags_vertical = 3
+
+[node name="Undo" type="Button" parent="VBoxC/Menu/VBox/Buttons"]
+margin_left = 28.0
+margin_right = 94.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+hint_tooltip = "Avaible after some ADs"
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.772549, 0.772549, 0.772549, 1 )
+text = "UNDO"
+
+[node name="Container" type="Container" parent="VBoxC/Menu/VBox/Buttons"]
+margin_left = 102.0
+margin_right = 175.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Help" type="Button" parent="VBoxC/Menu/VBox/Buttons"]
+show_behind_parent = true
+margin_left = 183.0
+margin_right = 283.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 40 )
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 12 )
+text = "Help"
+
+[node name="Container3" type="Container" parent="VBoxC/Menu/VBox/Buttons"]
+margin_left = 291.0
+margin_right = 364.0
+margin_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 20, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MenuB" type="Button" parent="VBoxC/Menu/VBox/Buttons"]
+show_behind_parent = true
+margin_left = 372.0
+margin_right = 472.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 40 )
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 12 )
+text = "Menu"
+
+[node name="Container4" type="Container" parent="VBoxC/Menu/VBox/Buttons"]
+margin_left = 480.0
+margin_right = 500.0
+margin_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 20, 0 )
+size_flags_vertical = 3
+
+[node name="GFContainer" type="CenterContainer" parent="VBoxC"]
+show_behind_parent = true
+margin_top = 159.0
+margin_right = 500.0
+margin_bottom = 659.0
+rect_min_size = Vector2( 500, 500 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HelpH" type="HBoxContainer" parent="VBoxC"]
+margin_top = 667.0
+margin_right = 500.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Container" type="Container" parent="VBoxC/HelpH"]
+margin_right = 10.0
+margin_bottom = 233.0
+rect_min_size = Vector2( 10, 20 )
+
+[node name="HelpL" type="Label" parent="VBoxC/HelpH"]
+margin_left = 18.0
+margin_right = 482.0
+margin_bottom = 233.0
+rect_min_size = Vector2( 400, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.619608, 0.619608, 0.619608, 1 )
+text = "1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 177110, 28657, 46368, 75025, 121393, 196418, 317811,
+514229, 832040, 1346269, 2178309, 3524578, 5702887, 9227465, 14930352, 24157817, 39088169, 63245986, 102334155, 165580141, 
+267914296, 433494437, 701408733, 1134903170, 1836311903, 2971215073, 4807526976, 7778742049
+
+"
+autowrap = true
+clip_text = true
+
+[node name="Container2" type="Container" parent="VBoxC/HelpH"]
+margin_left = 490.0
+margin_right = 500.0
+margin_bottom = 233.0
+rect_min_size = Vector2( 10, 20 )
+
+[node name="ColorHelp" type="CenterContainer" parent="VBoxC"]
+visible = false
+show_behind_parent = true
+margin_top = 825.0
+margin_right = 500.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Menu" type="PopupMenu" parent="."]
+light_mask = -2147483647
+margin_left = 400.0
+margin_top = 122.0
+margin_right = 420.0
+margin_bottom = 142.0
+rect_min_size = Vector2( 10, 10 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CRect" type="ColorRect" parent="Menu"]
+margin_left = -374.786
+margin_top = -42.449
+margin_right = 75.2143
+margin_bottom = 657.551
+rect_min_size = Vector2( 450, 700 )
+color = Color( 0.152941, 0.247059, 0.141176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/CRect"]
+margin_right = 450.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 450, 700 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Menu/CRect/CenterContainer"]
+margin_left = 25.0
+margin_top = 7.0
+margin_right = 425.0
+margin_bottom = 692.0
+rect_min_size = Vector2( 400, 685 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container2" type="Container" parent="Menu/CRect/CenterContainer/VBox"]
+margin_right = 400.0
+margin_bottom = 197.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AI" type="Button" parent="Menu/CRect/CenterContainer/VBox"]
+margin_top = 172.0
+margin_right = 400.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 0, 60 )
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 5 )
+text = "AI 10 turns"
+
+[node name="Options" type="Button" parent="Menu/CRect/CenterContainer/VBox"]
+visible = false
+margin_top = 102.0
+margin_right = 400.0
+margin_bottom = 162.0
+rect_min_size = Vector2( 0, 60 )
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 5 )
+text = "Options"
+
+[node name="ToggleTheme" type="Button" parent="Menu/CRect/CenterContainer/VBox"]
+margin_top = 172.0
+margin_right = 400.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 0, 60 )
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = true
+pressed = true
+text = "Theme Bright"
+
+[node name="ClickMode" type="Button" parent="Menu/CRect/CenterContainer/VBox"]
+margin_top = 207.0
+margin_right = 400.0
+margin_bottom = 267.0
+rect_min_size = Vector2( 0, 60 )
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 5 )
+toggle_mode = true
+text = "Click Mode OFF"
+
+[node name="5x5" type="Button" parent="Menu/CRect/CenterContainer/VBox"]
+visible = false
+margin_top = 312.0
+margin_right = 400.0
+margin_bottom = 372.0
+rect_min_size = Vector2( 0, 60 )
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 5 )
+text = "5 x 5"
+
+[node name="8x8" type="Button" parent="Menu/CRect/CenterContainer/VBox"]
+visible = false
+margin_top = 382.0
+margin_right = 400.0
+margin_bottom = 442.0
+rect_min_size = Vector2( 0, 60 )
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 5 )
+text = "8 x 8"
+
+[node name="Share" type="Button" parent="Menu/CRect/CenterContainer/VBox"]
+margin_top = 277.0
+margin_right = 400.0
+margin_bottom = 337.0
+rect_min_size = Vector2( 0, 60 )
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 5 )
+text = "Share"
+
+[node name="Restart" type="Button" parent="Menu/CRect/CenterContainer/VBox"]
+margin_top = 347.0
+margin_right = 400.0
+margin_bottom = 407.0
+rect_min_size = Vector2( 0, 60 )
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 5 )
+text = "Restart"
+
+[node name="Container3" type="Container" parent="Menu/CRect/CenterContainer/VBox"]
+margin_top = 417.0
+margin_right = 400.0
+margin_bottom = 614.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Close" type="Button" parent="Menu/CRect/CenterContainer/VBox"]
+margin_top = 624.0
+margin_right = 400.0
+margin_bottom = 684.0
+rect_min_size = Vector2( 0, 60 )
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 5 )
+text = "Close Menu"
+
+[node name="HelpM" type="PopupMenu" parent="."]
+light_mask = -2147483647
+margin_left = 400.0
+margin_top = 122.0
+margin_right = 420.0
+margin_bottom = 142.0
+rect_min_size = Vector2( 10, 10 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CRect" type="ColorRect" parent="HelpM"]
+margin_left = -375.0
+margin_top = -95.0
+margin_right = 75.0
+margin_bottom = 742.0
+rect_min_size = Vector2( 450, 840 )
+color = Color( 0.152941, 0.247059, 0.141176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="HelpM/CRect"]
+margin_right = 450.0
+margin_bottom = 837.0
+rect_min_size = Vector2( 450, 840 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="HelpM/CRect/CenterContainer"]
+margin_left = 25.0
+margin_top = 20.0
+margin_right = 425.0
+margin_bottom = 820.0
+rect_min_size = Vector2( 400, 800 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container2" type="Container" parent="HelpM/CRect/CenterContainer/VBox"]
+margin_right = 400.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HelpM/CRect/CenterContainer/VBox"]
+margin_top = 30.0
+margin_right = 400.0
+margin_bottom = 700.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "The movement of numbers on the playing field for four sides, does by swipe.
+
+The adjacent numbers of the Fibonacci series are interconnected. 
+
+Example: 1 connected with 2, 2 - 3, 3 - 5, 5 - 8, 8 - 13, 13 - 21, 21 - 34, 34 - 55 &etc.
+
+Fibonacci  sequence 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711 ...
+
+In which the first two numbers are either 1 and 1, or 0 and 1, and each subsequent number is equal to the sum of the two previous numbers."
+
+[node name="Container3" type="Container" parent="HelpM/CRect/CenterContainer/VBox"]
+margin_top = 710.0
+margin_right = 400.0
+margin_bottom = 730.0
+rect_min_size = Vector2( 0, 20 )
+size_flags_horizontal = 3
+
+[node name="Close" type="Button" parent="HelpM/CRect/CenterContainer/VBox"]
+margin_top = 740.0
+margin_right = 400.0
+margin_bottom = 800.0
+rect_min_size = Vector2( 0, 60 )
+custom_styles/hover = ExtResource( 11 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+custom_fonts/font = ExtResource( 5 )
+text = "Close Help"
+[connection signal="pressed" from="VBoxC/TelosAds/Psyontech" to="." method="_on_Psyontech_pressed"]
+[connection signal="pressed" from="VBoxC/Menu/VBox/Buttons/Undo" to="." method="_on_Undo_pressed"]
+[connection signal="pressed" from="VBoxC/Menu/VBox/Buttons/Help" to="." method="_on_Help_pressed"]
+[connection signal="pressed" from="VBoxC/Menu/VBox/Buttons/MenuB" to="." method="_on_MenuB_pressed"]
+[connection signal="pressed" from="Menu/CRect/CenterContainer/VBox/AI" to="." method="_on_AI_pressed"]
+[connection signal="pressed" from="Menu/CRect/CenterContainer/VBox/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="Menu/CRect/CenterContainer/VBox/ToggleTheme" to="." method="_on_ToggleTheme_pressed"]
+[connection signal="pressed" from="Menu/CRect/CenterContainer/VBox/ClickMode" to="." method="_on_ClickMode_pressed"]
+[connection signal="pressed" from="Menu/CRect/CenterContainer/VBox/5x5" to="." method="_on_5x5_pressed"]
+[connection signal="pressed" from="Menu/CRect/CenterContainer/VBox/8x8" to="." method="_on_8x8_pressed"]
+[connection signal="pressed" from="Menu/CRect/CenterContainer/VBox/Share" to="." method="_on_Share_pressed"]
+[connection signal="pressed" from="Menu/CRect/CenterContainer/VBox/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="Menu/CRect/CenterContainer/VBox/Close" to="." method="_on_Close_pressed"]
+[connection signal="pressed" from="HelpM/CRect/CenterContainer/VBox/Close" to="." method="_on_CloseHelpM_pressed"]
