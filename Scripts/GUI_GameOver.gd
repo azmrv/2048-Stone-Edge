@@ -34,13 +34,16 @@ func setup():
 	
 
 func update_score():
-#	print("GUI_GameOver update_score(score)")
-#	$VBox/VBoxLabels/ScoreTable.text = "Score: %s" % str(Main.current_score) 
-	$VBox/VBoxLabels/ScoreTable.bbcode_text = "[center]Score Table" + "\n" +"[/center]"
-	Main.set_records_table()
+#	print("GUI_GameOver update_score(score)")	
+	$VBox/VBoxLabels/ScoreTable.bbcode_text = "[center]Score Table" + "\n"+ "\n"  +"[/center]"
+#	$VBox/VBoxLabels/ScoreTable.text = "Score: %s" % str(Main.current_score)
+	var dkey = Main.set_records_table()
 	var dict = Main.scores_dict	
 	for key in dict:
-		$VBox/VBoxLabels/ScoreTable.append_bbcode("		" + str(key)+": "+ str(dict[key]) + "\n")
+		if key == dkey:
+			$VBox/VBoxLabels/ScoreTable.append_bbcode("[color=red]"+"		" + str(key)+": "+ str(dict[key]) + "[/color]" + "\n")
+		else:
+			$VBox/VBoxLabels/ScoreTable.append_bbcode("		" + str(key)+": "+ str(dict[key]) + "\n")
 
 func _on_NewGame_pressed() -> void:
 #	$VBox.visible = false

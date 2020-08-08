@@ -9,6 +9,8 @@ signal gui_undo
 
 var background_scenes = preload("res://Scenes/Background.tscn")
 
+var game_name = "2048 Stone Edge"
+
 var screenSize = Vector2(0,0)
 var showMenuLag = null
 
@@ -19,7 +21,7 @@ func _ready() -> void:
 	setup()
 	setup_signals()
 	setup_nodes()
-	add_menu_items()
+
 	
 
 func setup_nodes():
@@ -48,47 +50,10 @@ func setup():
 #	self.add_child(background_node)
 	Main.gui_node.set_visible(true)
 	$VBoxC.rect_min_size = screenSize
+	$VBoxC/TelosAds/GameName.text = game_name
 #	create_numbers_on_game_field()
 	print("set screen size = %s" %  screenSize)
 
-
-func add_menu_items():
-#	$VBoxC/Menu/VBox/Buttons/Menu.add_item("New Game",1)#	
-#	$VBoxC/Menu/VBox/Buttons/Menu.add_item("5 x 5",5))
-#	$VBoxC/Menu/VBox/Buttons/Menu.add_item("8 x 8",8)
-#	$VBoxC/Menu/VBox/Buttons/Menu.add_item("Share",10)
-#	$VBoxC/Menu/VBox/Buttons/Menu.add_item("Toggle Click Mode",2)
-#	$VBoxC/Menu/VBox/Buttons/Menu.add_item("Change Theme",3)
-#	$VBoxC/Menu/VBox/Buttons/Menu.add_item("Toggle AI",13)
-#	$VBoxC/Menu/VBox/Buttons/Menu.add_item("Options",9)
-	pass
-
-
-func show_message(text):
-#	print("show_message()")
-#	$GUI_InGamePlay/VBoxContainer/CentContMessage/Message.text = text
-#	$GUI_InGamePlay/VBoxContainer/CentContMessage/Message.show()
-#	$GUI_InGamePlay/MessageTimer.start()
-	pass
-
-
-func show_game_over():
-#	show_message("Game Over")
-#	# Wait until the MessageTimer has counted down.
-#	yield($GUI_InGamePlay/MessageTimer, "timeout")
-#
-#	show_message("Try Again!")
-#	# Wait until the MessageTimer has counted down.
-#	yield($GUI_InGamePlay/MessageTimer, "timeout")
-#
-#	$GUI_InGamePlay/Message.text = "Fibonacci!"
-#	$GUI_InGamePlay/Message.show()
-#	# Make a one-shot timer and wait for it to finish.
-#	yield(get_tree().create_timer(1), "timeout")
-#
-#	$GUI_MainMenu/CenterContainer2/VBoxContainer/ExitGame.show()
-#	$GUI_MainMenu/CenterContainer2/VBoxContainer/StartGame.show()
-	pass
 
 
 func update_score():
@@ -102,7 +67,19 @@ func setup_signals():
 	pass
 
 
+func show_gameover():
+	$VBoxC/Menu/VBox/Buttons.visible = false
+	$MessPU.show()
+	$MessPU/CRect2/CC/MessageBox.text = "Game over"
+	$GameOverT.wait_time = 2
+	$GameOverT.start()
 
+func show_message(text):	
+	$MessGL.show()
+	$MessGL/CC/MessageBox.text = text
+	$Timer.wait_time = 2
+	# add func to emit colors signal on stone
+	$Timer.start()
 
 
 func _on_Psyontech_pressed() -> void:
@@ -145,38 +122,49 @@ func _on_ToggleTheme_pressed() -> void:
 	if Main.is_dark == false && $Menu/CRect/CenterContainer/VBox/ToggleTheme.pressed == false:
 		$Menu/CRect/CenterContainer/VBox/ToggleTheme.pressed = false
 		$Menu/CRect/CenterContainer/VBox/ToggleTheme.text = "Dark"
+		show_message("Dark Theme activated")
 		Main.is_dark = true	
 		print("Mode %s" % Main.clickInput)
 	if Main.is_dark == true && $Menu/CRect/CenterContainer/VBox/ToggleTheme.pressed == true:
 		$Menu/CRect/CenterContainer/VBox/ToggleTheme.pressed = true
 		$Menu/CRect/CenterContainer/VBox/ToggleTheme.text = "Bright"
+		show_message("Bright Theme activated")
 		Main.is_dark = false
 		print("Mode %s" % Main.clickInput)
-
+	$Menu.hide()
 
 func _on_ClickMode_pressed() -> void:
 	print("GUI Change click mode")	
 	if Main.clickInput == true && $Menu/CRect/CenterContainer/VBox/ClickMode.pressed == false:
 		$Menu/CRect/CenterContainer/VBox/ClickMode.text = "Click Mode OFF"
+		show_message("Click Mode OFF")
 		Main.clickInput = false		
 		print("Mode %s" % Main.clickInput)
 	elif Main.clickInput == false && $Menu/CRect/CenterContainer/VBox/ClickMode.pressed == true:
 		$Menu/CRect/CenterContainer/VBox/ClickMode.text = "Click Mode ON"
+		show_message("Click Mode ON")
 		Main.clickInput = true
 		print("Mode %s" % Main.clickInput)
-	
-
+	$Menu.hide()
 
 func _on_Options_pressed() -> void:
 	Main.new_game = 1
 	$Menu.hide()
 
+func gameover():
+	$Menu.hide()
+	$Menu.visible = false	
+	$HelpM.hide()
+	$MessPU.hide()	
+	Main.new_game = 1
+	Main.game_over()
 
 func _on_AI_pressed() -> void:
 	Main.new_game = 1
 	$Menu/CRect/CenterContainer/VBox/AI.text = "10 turns AI"
 	$Menu.hide()
-	Main.ai_turns(20)
+	AdsManager.showRewardedVideo()
+	Main.ai_turns(10)
 	
 
 
@@ -192,10 +180,40 @@ func _on_Close_pressed() -> void:
 
 func _on_Help_pressed() -> void:
 	Main.new_game = 0
-
 	$HelpM.show()
 
 
 func _on_CloseHelpM_pressed() -> void:
 	Main.new_game = 1
 	$HelpM.hide()
+	
+func _on_GameOverT_timeout() -> void:
+	$MessPU.hide()
+	$VBoxC/Menu/VBox/Buttons.visible = true
+	Main.show_result()
+
+
+func _on_Timer_timeout() -> void:
+	$MessGL.hide()
+
+
+func _on_GameMode_pressed() -> void:
+	if Main.is_classic_2048 == true && $Menu/CRect/CenterContainer/VBox/GameMode.pressed == false:
+		$Menu/CRect/CenterContainer/VBox/GameMode.pressed = false
+		$Menu/CRect/CenterContainer/VBox/GameMode.text = "To Classic 2048"
+		$VBoxC/TelosAds/GameName.modulate = Color.antiquewhite
+		game_name = "2048 Stone Edge"
+		show_message("Now playing Stone Edge version")
+		Main.is_classic_2048 = false
+		Main.new_game()		
+	if Main.is_classic_2048 == false && $Menu/CRect/CenterContainer/VBox/GameMode.pressed == true:
+		$Menu/CRect/CenterContainer/VBox/GameMode.pressed = true
+		$Menu/CRect/CenterContainer/VBox/GameMode.text = "To 2048 Stone Edge"
+		$VBoxC/TelosAds/GameName.modulate = Color.gold
+		game_name = "Classic 2048"
+		show_message("Now playing Classic 2048 version")
+		Main.is_classic_2048 = true
+		Main.new_game()
+		AdsManager.showBanner()			
+	$Menu.hide()
+	$VBoxC/TelosAds/GameName.text = game_name
