@@ -12,7 +12,7 @@
 [ext_resource path="res://Styles/GUI.tres" type="StyleBox" id=10]
 
 [sub_resource type="DynamicFont" id=1]
-size = 70
+size = 50
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -32,11 +32,12 @@ z_as_relative = false
 script = ExtResource( 3 )
 
 [node name="VBox" type="VBoxContainer" parent="."]
-margin_right = 500.0
+margin_left = -1.78174
+margin_right = 498.218
 margin_bottom = 900.0
 rect_min_size = Vector2( 500, 900 )
-size_flags_horizontal = 11
-size_flags_vertical = 11
+size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -45,18 +46,25 @@ __meta__ = {
 [node name="VBoxLabels" type="VBoxContainer" parent="VBox"]
 show_behind_parent = true
 margin_right = 500.0
-margin_bottom = 704.0
-size_flags_horizontal = 11
-size_flags_vertical = 11
+margin_bottom = 724.0
+rect_min_size = Vector2( 0, 692 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 size_flags_stretch_ratio = 128.0
 custom_constants/separation = 30
 alignment = 1
 
 [node name="GameStatus" type="Label" parent="VBox/VBoxLabels"]
 margin_right = 500.0
-margin_bottom = 92.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 500, 92 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
-text = "Game Over"
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "You can do it!"
 align = 1
 valign = 1
 __meta__ = {
@@ -64,9 +72,11 @@ __meta__ = {
 }
 
 [node name="ScoreTable" type="RichTextLabel" parent="VBox/VBoxLabels"]
-margin_top = 122.0
+margin_top = 124.0
 margin_right = 500.0
-margin_bottom = 704.0
+margin_bottom = 724.0
+rect_min_size = Vector2( 500, 600 )
+rect_clip_content = false
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/normal = ExtResource( 10 )
@@ -77,26 +87,25 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 bbcode_enabled = true
+scroll_active = false
 scroll_following = true
 
 [node name="VBoxB" type="VBoxContainer" parent="VBox"]
-show_behind_parent = true
-margin_top = 712.0
+margin_top = 732.0
 margin_right = 500.0
-margin_bottom = 792.0
+margin_bottom = 812.0
 rect_min_size = Vector2( 500, 80 )
 size_flags_horizontal = 3
-size_flags_vertical = 11
+size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
-alignment = 2
 
 [node name="HBox" type="HBoxContainer" parent="VBox/VBoxB"]
 show_behind_parent = true
 margin_right = 500.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 500, 0 )
-size_flags_horizontal = 11
-size_flags_vertical = 11
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 2
 
@@ -132,10 +141,10 @@ rect_min_size = Vector2( 20, 80 )
 size_flags_vertical = 3
 
 [node name="Container" type="Container" parent="VBox"]
-margin_top = 800.0
+margin_top = 820.0
 margin_right = 500.0
 margin_bottom = 900.0
-rect_min_size = Vector2( 0, 100 )
+rect_min_size = Vector2( 0, 80 )
 
 [node name="WaitForADs" type="Timer" parent="."]
 wait_time = 3.0
@@ -162,10 +171,10 @@ autowrap = true
 clip_text = true
 
 [node name="Label" type="Label" parent="PopUp"]
-margin_left = 68.0
-margin_top = 76.0
-margin_right = 424.0
-margin_bottom = 292.0
+margin_left = 76.9089
+margin_top = 261.307
+margin_right = 432.909
+margin_bottom = 477.307
 custom_fonts/font = ExtResource( 2 )
 text = "PLZ Waiting for ADs"
 align = 1

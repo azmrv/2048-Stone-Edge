@@ -16,9 +16,9 @@ var testAdBannerId = "ca-app-pub-3940256099942544/6300978111"
 var testAdInterstitialId = "ca-app-pub-3940256099942544/1033173712"
 var testAdRewardedId = "ca-app-pub-3940256099942544/5224354917"
 
-var adBannerId = "ca-app-pub-2510925268933160/8589091487"
-var adInterstitialId = "ca-app-pub-2510925268933160/6596531152"
-var adRewardedId = "ca-app-pub-2510925268933160/3714931537"
+var adBannerId = "ca-app-pub-2510925268933160/7563239259"
+var adInterstitialId = "ca-app-pub-2510925268933160/2747571432"
+var adRewardedId = "ca-app-pub-2510925268933160/3623994246"
 
 var useBanner = true
 var useInterstitial = true
@@ -151,7 +151,7 @@ func _on_interstitial_loaded():
 func _on_interstitial_close():
 	print("Interstitial closed")
 	interstitialReady = false
-
+	loadInterstitial()
 func _on_rewarded_video_ad_loaded():
 	print("Rewarded loaded success")
 	rewardedReady = true
@@ -163,7 +163,7 @@ func _on_rewarded_video_ad_closed():
 	
 func _on_rewarded(currency, amount):
 	print("Reward: " + currency + ", " + str(amount))
-	Main.undo()
+	Main.ai_turns(10)
 # Resize
 
 func onResize():

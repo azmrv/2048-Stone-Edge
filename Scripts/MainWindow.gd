@@ -18,6 +18,7 @@ onready var admob = $AdMob
 func _ready() -> void:
 	setup()
 	Main.new_game()
+	get_tree().set_auto_accept_quit(false)
 #	admob.load_banner()
 #	admob.load_interstitial()
 #	admob.load_rewarded_video()
@@ -39,8 +40,7 @@ func setup():
 
 
 
-func _input(event):
-	Main.undo_game_field = Main.game_field
+func _input(event):	
 	if (Main.new_game != 0) && (Main.clickInput == true):
 		#print("_input(event)", event)
 		if(Input.is_action_just_pressed("ui_touch")):
@@ -96,4 +96,21 @@ func calculate_direction():
 			Main.move_down(Main.game_field) 
 
 
+func _notification(what):
+	if (what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST):
+		Utility.save_game()
+		get_tree().quit()
+	if (what == MainLoop.NOTIFICATION_WM_FOCUS_OUT ):
+		Utility.save_game()
+	#if (what == MainLoop.NOTIFICATION_APP_RESUMED ):
+		#Main.load_game()
+	#if (what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST):
+		#Main.load_game()
+	#if (what == MainLoop.NOTIFICATION_WM_FOCUS_IN ):
+		#Main.load_game()
+
+
+
+func _finalize():
+	Main.savegame()
 
