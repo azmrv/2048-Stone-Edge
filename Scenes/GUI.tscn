@@ -278,7 +278,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.619608, 0.619608, 0.619608, 1 )
-text = "In Menu you can switch between StoneEdge and Classic version of 2048.
+text = "In Menu you can change Game Mode, switch between StoneEdge and Classic version of 2048.
 
 "
 autowrap = true
@@ -319,7 +319,7 @@ margin_top = -42.449
 margin_right = 75.2143
 margin_bottom = 657.551
 rect_min_size = Vector2( 450, 700 )
-color = Color( 0.152941, 0.266667, 0.27451, 1 )
+color = Color( 0.196078, 0.454902, 0.470588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -488,7 +488,7 @@ margin_top = -95.0
 margin_right = 75.0
 margin_bottom = 742.0
 rect_min_size = Vector2( 450, 840 )
-color = Color( 0.152941, 0.266667, 0.27451, 1 )
+color = Color( 0.196078, 0.454902, 0.470588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -532,11 +532,12 @@ custom_fonts/normal_font = ExtResource( 5 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
-text = "
-The movement of numbers on the playing field for four sides, does by swipe.
+text = "The movement of numbers on the playing field for four sides, does by swipe.
 
-The adjacent numbers are interconnected, 2 connected with 2, 2 - 3, 3 - 5, 5 - 8, 8 - 13, 13 - 21, 21 - 34, 34 - 55 &etc.
-"
+A very unusual version of the classic game 2048, in which the player will have to fight with himself, because the game throws stones on the field completely unexpectedly, which betrays some serious innovations, you definitely did not expect this, new sensations are guaranteed to you.
+
+Rules.
+When mixing from edge of field to edge, the same numbers are added to each other, the player's task is to score as many points as possible."
 
 [node name="Container3" type="Container" parent="HelpM/CRect/CenterContainer/VBox"]
 margin_top = 710.0
@@ -615,7 +616,7 @@ margin_top = 130.249
 margin_right = 472.33
 margin_bottom = 580.249
 rect_min_size = Vector2( 450, 450 )
-color = Color( 0.933333, 0.321569, 0.321569, 1 )
+color = Color( 0.564706, 0.556863, 0.666667, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -640,7 +641,7 @@ margin_right = 425.0
 margin_bottom = 425.0
 rect_min_size = Vector2( 400, 400 )
 custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.52549, 0.741176, 0.752941, 1 )
+custom_colors/font_color = Color( 0.811765, 0.862745, 0.866667, 1 )
 custom_colors/font_outline_modulate = Color( 0.145098, 0.145098, 0.145098, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 2

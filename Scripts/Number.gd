@@ -360,44 +360,44 @@ func set_color_bright():
 	if number == null:				
 		select_node_to_color(Color( 0.3, 0.3, 0.3, 0.3 ))
 	elif number == 2 :
-		select_node_to_color("5799a7")
+		select_node_to_color("11aecf")
 	elif number == 4 :
-		select_node_to_color("a49d4a")
+		select_node_to_color("11cf1f")
 	elif number == 8 :
-		select_node_to_color("71cf17")
+		select_node_to_color("cfc311")
 	elif number == 16 :
-		select_node_to_color("17cfad")
+		select_node_to_color("cf3511")
 	elif number == 32 :
-		select_node_to_color("1741cf")
+		select_node_to_color("2d11cf")
 	elif number == 64 :
-		select_node_to_color("a517cf")
+		select_node_to_color("cf11c3")
 	elif number == 128 :
-		select_node_to_color("cf8917")
+		select_node_to_color("7911cf")
 	elif number == 256 :
-		select_node_to_color("17cf79")
+		select_node_to_color("11cfcf")
 	elif number == 512 :
-		select_node_to_color("1763cf")
+		select_node_to_color("11cf6d")
 	elif number == 1024 :
-		select_node_to_color("7317cf")
+		select_node_to_color("74cf11")
 	elif number == 2048 :
 		do_graz_2584()
-		select_node_to_color("cf1796")
+		select_node_to_color("cf8e11")
 	elif number == 4096 :
-		select_node_to_color("cf173c")	
+		select_node_to_color("ff0300")	
 	elif number == 8192 :
-		select_node_to_color("ec4a0b")	
+		select_node_to_color("41ff00")	
 	elif number == 16384 :
-		select_node_to_color("20ff00")				
+		select_node_to_color("00fffc")				
 	elif number == 32768 :
-		select_node_to_color("ff2929")		
+		select_node_to_color("ff00fb")		
 	elif number == -256 :
-		select_node_to_color("29fff5")
+		select_node_to_color("6f413a")
 	elif number == -512 :
-		select_node_to_color("2959ff")
+		select_node_to_color("636f3a")
 	elif number == -1024 :
-		select_node_to_color("9429ff")
+		select_node_to_color("3a596f")
 	elif number == -2048 :
-		select_node_to_color("ff29e3")
+		select_node_to_color("603a6f")
 	else:
-		select_node_to_color("004cff")
+		select_node_to_color("908eaa")
 	
