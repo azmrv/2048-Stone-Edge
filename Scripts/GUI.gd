@@ -131,6 +131,8 @@ func _on_ToggleTheme_pressed() -> void:
 		show_message("Bright Theme activated")
 		Main.is_dark = false
 		print("Mode %s" % Main.clickInput)
+	Main.reasign_numbers_on_gamefield()
+	Main.new_game = 1
 	$Menu.hide()
 
 func _on_ClickMode_pressed() -> void:
@@ -145,6 +147,7 @@ func _on_ClickMode_pressed() -> void:
 		show_message("Click Mode ON")
 		Main.clickInput = true
 		print("Mode %s" % Main.clickInput)
+	Main.new_game = 1
 	$Menu.hide()
 
 func _on_Options_pressed() -> void:
@@ -213,7 +216,6 @@ func _on_GameMode_pressed() -> void:
 		game_name = "Classic 2048"
 		show_message("Now playing Classic 2048 version")
 		Main.is_classic_2048 = true
-		Main.new_game()
-		AdsManager.showBanner()			
+		Main.new_game()		
 	$Menu.hide()
 	$VBoxC/TelosAds/GameName.text = game_name

@@ -15,7 +15,7 @@ const GAMEFIELD_SAVEDATA = "user://gamefield.save"
 
 #Scenes
 var number_scene = preload("res://Scenes/Number.tscn")
-var ads_scene = preload("res://Scenes/ADs.tscn")
+#var ads_scene = preload("res://Scenes/ADs.tscn")
 var gamefield_scene = preload("res://Scenes/GameField.tscn")
 var background_scene = preload("res://Scenes/Background.tscn")
 var game_field_scene = preload("res://Scenes/GameField.tscn")
@@ -140,9 +140,9 @@ func setup_nodes():
 	gui_node.set_visible(false)
 	gamefield_node = game_field_scene.instance()
 	get_node("/root/MainWindow/GUI/VBoxC/GFContainer").add_child(gamefield_node)
-	ads_node = ads_scene.instance()
-	get_node("/root/MainWindow").add_child(ads_node)
-	ads_node.set_visible(false)
+	#ads_node = ads_scene.instance()
+	#get_node("/root/MainWindow").add_child(ads_node)
+	#ads_node.set_visible(false)
 	gui_gameover_node = gui_gameover_scene.instance()
 	get_node("/root/MainWindow").add_child(gui_gameover_node)
 	gui_gameover_node.set_visible(false)
@@ -342,6 +342,7 @@ func make_matrix():
 
 func generate_new_numbers_in_array():
 	#print("Main generate_new_numbers_in_array() \n")
+	#Смягчить вброс новых цифр по вероятности вброса 2 и раньше трёх свободных полей выходить на вброс одной цифры, не двух.
 	var kodn
 	randgen.randomize()
 	kodn = koldop
@@ -413,7 +414,7 @@ func reasign_numbers_on_gamefield():
 					if children_mas_number_scene[i].number == 2048:
 						call_deferred("do_graz_2048")
 					if children_mas_number_scene[i].number == 204800:
-						call_deferred("do_graz_adsoff")
+						call_deferred("do_graz_adsoff")	
 	gui_node.update_score()
 
 

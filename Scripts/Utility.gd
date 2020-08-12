@@ -5,6 +5,20 @@ const COMMON_SAVEDATA = "user://savegame.save"
 const SCORE_TABLE_SAVEDATA = "user://scores.save"
 const GAMEFIELD_SAVEDATA = "user://gamefield.save"
 
+# take screnhot from game
+
+func take_screenshot():    
+	var image = get_viewport().get_texture().get_data()	
+	var datetimeDict = OS.get_datetime()	
+	var year = datetimeDict.year;
+	var month = datetimeDict.month;
+	var day = datetimeDict.day;
+	var hour = datetimeDict.hour;
+	var minute = datetimeDict.minute;
+	var seconds = datetimeDict.second;
+	var time = str(day)+"_"+str(month)+"_"+str(year)+"_"+str(hour)+"_"+str(minute)+"_"+str(seconds)
+	image.flip_y()
+	image.save_png("F:/!GAMEDEV/GODOT/Graphics/screenshot_%s.png" % time)
 
 
 func load_game():
